@@ -13,6 +13,6 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}    # The private key stored in GitHub Secrets
           port: ${{ secrets.PORT }}
           script: whoami
