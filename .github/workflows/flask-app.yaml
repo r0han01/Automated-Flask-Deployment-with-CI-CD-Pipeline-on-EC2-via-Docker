@@ -20,5 +20,6 @@ jobs:
           script: |
             docker stop jenkins || true
             docker rm jenkins || true
+            pwd
             docker build -t jenkins /home/r0han01/Super-Interactive-Flask-Webpage
             docker run --name jenkins -d -p 9000:9000 jenkins
