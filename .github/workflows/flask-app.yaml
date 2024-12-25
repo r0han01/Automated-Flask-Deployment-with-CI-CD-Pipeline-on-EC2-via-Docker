@@ -18,7 +18,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}  # The private key stored in GitHub Secrets
           port: ${{ secrets.PORT }}
           script: |
-            docker stop jenkins
-            docker rm jenkins
+            docker stop jenkins || true
+            docker rm jenkins || true
             docker build -t jenkins .
             docker run --name jenkins -d -p 9000:9000 jenkins
