@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Webpage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            animation: text-flicker 3s infinite;
+        }
+
+        @keyframes text-flicker {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            color: #fff;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .output-box {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            animation: fade-in 0.5s ease-in-out;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float-particle 5s infinite ease-in-out;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        .particle:nth-child(1) {
+            left: 20%;
+            animation-delay: 0s;
+        }
+        .particle:nth-child(2) {
+            left: 40%;
+            animation-delay: 1s;
+        }
+        .particle:nth-child(3) {
+            left: 60%;
+            animation-delay: 2s;
+        }
+        .particle:nth-child(4) {
+            left: 80%;
+            animation-delay: 3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Interactive Webpage</h1>
+        <button id="trigger-btn">Click Me for a Surprise!</button>
+        <div id="output-box" class="output-box" style="visibility: hidden;"></div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <script>
+        const triggerButton = document.getElementById('trigger-btn');
+        const outputBox = document.getElementById('output-box');
+
+        const messages = [
+            "Hello, World! 🌟",
+            "You are amazing! 🚀",
+            "The future is bright! 🌈",
+            "Keep going, you're awesome! 💪",
+            "Believe in yourself! ✨",
+        ];
+
+        triggerButton.addEventListener('click', () => {
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            outputBox.textContent = randomMessage;
+            outputBox.style.visibility = "visible";
+
+            // Add a quick animation
+            outputBox.style.animation = "fade-in 0.5s ease-in-out";
+        });
+
+        // Floating particles animation
+        const particles = document.querySelectorAll('.particle');
+        particles.forEach((particle, index) => {
+            particle.style.animation = `float-particle 5s infinite ease-in-out ${index * 0.5}s`;
+        });
+    </script>
+</body>
+</html>
