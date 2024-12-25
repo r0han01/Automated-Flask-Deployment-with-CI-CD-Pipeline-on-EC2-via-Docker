@@ -122,11 +122,11 @@ jobs:
 - Flask: Install Flask via pip install flask.
 - Docker: Ensure Docker is installed and configured on your local machine and EC2 instance.
 - GitHub Repository: Store your code in a GitHub repository.
-Step 1: Clone the Repository
+####### Step 1: Clone the Repository
 - Clone the repository to your local machine:
-Step 2: Docker Setup
+####### Step 2: Docker Setup
 - Build and run the Docker container locally:
-Step 3: Configure GitHub Actions Secrets
+####### Step 3: Configure GitHub Actions Secrets
 - To securely authenticate with Docker Hub and deploy to EC2, add the following secrets in your GitHub repository:
 ```
 `DOCKER_USERNAME`
@@ -136,7 +136,7 @@ Step 3: Configure GitHub Actions Secrets
 `SSH_PRIVATE_KEY (Your EC2 private SSH key)`
 `PORT (The port for SSH connection, default is 22)`
 ```
-Step 4: Deploy to EC2
+####### Step 4: Deploy to EC2
 - Once the GitHub Actions pipeline runs, your Docker container will be automatically deployed to your EC2 instance.
 
 # Conclusion
