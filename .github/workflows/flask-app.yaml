@@ -39,7 +39,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          
+
       - name: executing remote ssh commands using private key
         uses: appleboy/ssh-action@v1.2.0
         with:
@@ -50,5 +50,6 @@ jobs:
           script: |
             docker stop jenkins || true
             docker rm jenkins || true
+            docker rmi docker.io/r0han01/jenkins:main
             docker run --name jenkins -d -p 9000:9000 docker.io/r0han01/jenkins:main
       
