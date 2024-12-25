@@ -27,7 +27,7 @@
 
 name: Flask Application CI/CD
 
- on:
+on:
    push:
      branches:
        - main
