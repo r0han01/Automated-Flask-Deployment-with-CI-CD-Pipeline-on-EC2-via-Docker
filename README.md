@@ -128,13 +128,14 @@ Step 2: Docker Setup
 - Build and run the Docker container locally:
 Step 3: Configure GitHub Actions Secrets
 - To securely authenticate with Docker Hub and deploy to EC2, add the following secrets in your GitHub repository:
-
+```
 `DOCKER_USERNAME`
 `DOCKER_PASSWORD`
 `HOST (Your EC2 instance's IP address)`
 `USERNAME (Your EC2 username)`
 `SSH_PRIVATE_KEY (Your EC2 private SSH key)`
 `PORT (The port for SSH connection, default is 22)`
+```
 Step 4: Deploy to EC2
 - Once the GitHub Actions pipeline runs, your Docker container will be automatically deployed to your EC2 instance.
 
